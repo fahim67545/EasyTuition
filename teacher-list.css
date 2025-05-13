@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f8faf7;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 0;
+  overflow-x: hidden; 
+  margin: 0;
+}
+
+/* Heading */
+h1 {
+  height: 12vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #fff;
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  padding: 0 30px;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+h1:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+}
+
+h1:hover {
+  box-shadow: 0 10px 25px rgba(46, 125, 50, 0.3);
+}
+
+h1:hover:before {
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Teacher List */
+#teacher-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  padding: 25px;
+  width: 100%;
+  max-width: 1200px;
+  overflow-y: auto; 
+  max-height: 80vh;
+  scroll-behavior: smooth;
+  margin-top: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #4caf50 #e8f5e9;
+}
+
+#teacher-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+#teacher-list::-webkit-scrollbar-track {
+  background: #e8f5e9;
+  border-radius: 10px;
+}
+
+#teacher-list::-webkit-scrollbar-thumb {
+  background-color: #4caf50;
+  border-radius: 10px;
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  width: 300px;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+  padding: 25px;
+  border-top: 4px solid #4caf50;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 30px rgba(76, 175, 80, 0.2);
+}
+
+.card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  border: 4px solid #e8f5e9;
+  align-self: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover img {
+  border-color: #4caf50;
+  transform: scale(1.05);
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  color: #2e7d32;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.card p {
+  color: #3e5b47;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Favorite Icon */
+.favorite-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favorite-icon:hover {
+  transform: scale(1.2);
+}
+
+.favorite-icon.active {
+  color: #f44336;
+  animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Toggle Button */
+.toggle-profile {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+}
+
+.toggle-profile:hover {
+  background-color: #388e3c;
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+.toggle-profile:active {
+  transform: translateY(0);
+}
+
+/* Card Details */
+.card-details {
+  display: none;
+  text-align: left;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  background-color: #f1f8e9;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 3px solid #4caf50;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-details.show {
+  display: block;
+}
+
+.card-details p {
+  margin-bottom: 10px;
+  color: #3e5b47;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(229, 57, 53, 0.2);
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+  box-shadow: 0 6px 12px rgba(229, 57, 53, 0.3);
+  transform: translateY(-2px);
+}
+
+.delete-btn:active {
+  transform: translateY(0);
+}
+
+/* Button Styling */
+button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+}
+
+button:hover {
+  background-color: #388e3c;
+  box-shadow: 0 6px 12px rgba(46, 125, 50, 0.3);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Search Bar */
+.search-container {
+  margin: 15px auto;
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+#search-bar {
+  padding: 14px 24px;
+  width: 100%;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  padding-left: 50px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.search-container::before {
+  content: "🔍";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #4caf50;
+  z-index: 1;
+}
+
+#search-bar:focus {
+  border-color: #4caf50;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.15);
+}
+
+#search-bar::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Media Query for smaller devices */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  #teacher-list {
+    max-height: none;
+    padding: 15px;
+    gap: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    height: 10vh;
+  }
+  
+  .search-container {
+    width: 90%;
+  }
+}

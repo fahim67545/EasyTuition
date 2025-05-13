@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyTuition - Select Role</title>
+    <link rel="stylesheet" href="role-selection.css">
+</head>
+<body>
+    <!-- Top bar with login button -->
+    <div class="top-bar">
+        <a href="login.html" class="login-button">লগইন</a>
+    </div>
+
+    <!-- Main container for role selection -->
+    <div class="role-container">
+        <h1>আপনার ভূমিকা নির্বাচন করুন</h1>
+        <p>আপনার ভূমিকা নির্বাচন করুন এবং সাইন আপ করুন।</p>
+
+        <!-- Role options -->
+        <div class="role-options">
+            <button class="role-button" onclick="window.location.href='teacher-signup.html'">শিক্ষক</button>
+            <button class="role-button" onclick="window.location.href='student-signup.html'">শিক্ষার্থী</button>
+        </div>
+    </div>
+
+    <!-- Success message -->
+    <div id="success-message" class="hide">সফলভাবে নিবন্ধিত!</div>
+  <script>
+    // Show success message if registered
+window.addEventListener('DOMContentLoaded', () => {
+    const successMessage = document.getElementById('success-message');
+    if (localStorage.getItem('registrationSuccess') === 'true') {
+        successMessage.classList.remove('hide');
+        setTimeout(() => {
+            successMessage.classList.add('hide');
+            localStorage.removeItem('registrationSuccess');
+        }, 3000);
+    }
+});
+</script>
+</body>
+</html>

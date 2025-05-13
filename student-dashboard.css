@@ -1,0 +1,201 @@
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8faf7;
+  color: #333;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #2e7d32 0%, #1b5e20 100%);
+  color: white;
+  padding-top: 30px;
+  padding-left: 0;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.sidebar li {
+  margin: 8px 15px;
+}
+
+.sidebar a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 14px 25px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar a:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: width 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  transform: translateX(5px);
+}
+
+.sidebar a:hover:before {
+  width: 5px;
+}
+
+.sidebar a.active {
+  background-color: #4caf50;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+.sidebar a.active:before {
+  width: 5px;
+  background-color: #81c784;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: #ffffff;
+  position: relative;
+  border-radius: 20px 0 0 20px;
+  margin: 15px 15px 15px 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  color: #2e7d32;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h1:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #4caf50;
+  border-radius: 3px;
+}
+
+.student-info {
+  background-color: #f1f8e9;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+  border-left: 5px solid #4caf50;
+}
+
+.student-info h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.student-info p {
+  font-size: 16px;
+  color: #3e5b47;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: 25px auto;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+}
+
+button:hover {
+  background-color: #388e3c;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(46, 125, 50, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(46, 125, 50, 0.2);
+}
+
+.dashboard-section {
+  display: none;
+  margin-top: 30px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-section h3 {
+  color: #2e7d32;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.dashboard-section p {
+  color: #3e5b47;
+  line-height: 1.7;
+}
+
+#achievements, #teacher-reviews, #student-reviews, #certificates {
+  padding: 25px;
+  background-color: #f1f8e9;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+  border-left: 5px solid #4caf50;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#achievements:hover, #teacher-reviews:hover, #student-reviews:hover, #certificates:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.15);
+}

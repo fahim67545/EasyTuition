@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title>EasyTuition - শিক্ষক নিবন্ধন</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h2>শিক্ষক নিবন্ধন ফর্ম</h2>
+        <form id="teacherForm">
+            <label>নাম</label>
+            <input type="text" id="name" required>
+
+            <label>ইমেইল</label>
+            <input type="email" id="email" required>
+
+            <label>পাসওয়ার্ড</label>
+            <input type="password" id="password" required>
+
+            <label>মোবাইল নাম্বার</label>
+            <input type="text" id="phone" required>
+
+            <label>ঠিকানা</label>
+            <input type="text" id="address" required>
+
+            <label>প্রতিষ্ঠানের নাম</label>
+            <input type="text" id="institution" required>
+
+            <label>বিষয়</label>
+            <input type="text" id="subject" required>
+
+            <label>অভিজ্ঞতা (বছর)</label>
+            <input type="number" id="experience" required>
+
+            <label>যোগ্যতা</label>
+            <input type="text" id="qualification" required>
+
+            <label>ক্লাস নিতে চান কোন শ্রেণীর?</label>
+            <input type="text" id="classRange" placeholder="যেমন: ৫ম-১০ম" required>
+
+            <label>সময় অনুযায়ী ক্লাস নিতে পারেন?</label>
+            <input type="text" id="availability" placeholder="যেমন: সন্ধ্যা ৫টা-৮টা" required>
+
+            <label>প্রোফাইল ছবি</label>
+            <input type="file" id="photo" accept="image/*" required>
+
+            <button type="submit">সাবমিট করুন</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('teacherForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const reader = new FileReader();
+            const file = document.getElementById('photo').files[0];
+
+            reader.onloadend = function () {
+                const teacher = {
+                    role: 'teacher',
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    password: document.getElementById('password').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    institution: document.getElementById('institution').value,
+                    subject: document.getElementById('subject').value,
+                    experience: document.getElementById('experience').value,
+                    qualification: document.getElementById('qualification').value,
+                    classRange: document.getElementById('classRange').value,
+                    availability: document.getElementById('availability').value,
+                    photo: reader.result || null
+                };
+
+                // Retrieve existing teachers or create an empty array if none
+                let allTeachers = JSON.parse(localStorage.getItem('teachers')) || [];
+                allTeachers.push(teacher); // Add the new teacher to the list
+                localStorage.setItem('teachers', JSON.stringify(allTeachers)); // Save to localStorage
+
+                localStorage.setItem('registrationSuccess', 'true');
+                window.location.href = 'role-selection.html'; // Redirect to the role selection page after success
+            };
+
+            if (file) {
+                reader.readAsDataURL(file); // Read the image file as base64 string
+            } else {
+                reader.onloadend(); // In case no image is selected, trigger onloadend
+            }
+        });
+    </script>
+</body>
+</html>

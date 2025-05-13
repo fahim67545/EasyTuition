@@ -1,0 +1,9 @@
+<button onclick="clearAllTeachers()" style="margin: 20px; padding: 10px; background-color: red; color: white; border: none; border-radius: 8px;">🧹 Clear All Teachers</button>
+
+  <script>
+    function clearAllTeachers() {
+      localStorage.removeItem("teachers");
+      alert("All teacher profiles have been cleared!");
+      location.reload(); // Reload the page to see the changes
+    }
+  </script>

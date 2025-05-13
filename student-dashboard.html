@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyTuition - Dashboard</title>
+  <link rel="stylesheet" href="student-dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li><a href="#" class="active" data-target="achievements">অর্জন</a></li>
+        <li><a href="#" data-target="teacher-reviews">শিক্ষকের রিভিউ</a></li>
+        <li><a href="#" data-target="student-reviews">শিক্ষার্থী রিভিউ</a></li>
+        <li><a href="#" data-target="certificates">সার্টিফিকেট</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <h1>শিক্ষার্থী ড্যাশবোর্ড</h1>
+
+      <!-- Student Info Section -->
+      <div class="student-info">
+        <h2>আপনার তথ্য</h2>
+        <p><strong>নাম:</strong> <span id="student-name"></span></p>
+        <p><strong>ইমেইল:</strong> <span id="student-email"></span></p>
+        <p><strong>মোবাইল নাম্বার:</strong> <span id="student-phone"></span></p>
+        <p><strong>ঠিকানা:</strong> <span id="student-address"></span></p>
+        <p><strong>শ্রেণি:</strong> <span id="student-grade"></span></p>
+        <p><strong>বিষয়:</strong> <span id="student-subjects"></span></p>
+        <p><strong>ক্লাসের সময় পছন্দ:</strong> <span id="student-availability"></span></p>
+      </div>
+
+      <!-- Button to go to Teacher List -->
+      <button id="go-to-teacher-list">শিক্ষক তালিকায় যান</button>
+
+      <!-- Dashboard sections -->
+      <div id="achievements" class="dashboard-section">
+        <h3>অর্জন</h3>
+        <p>আপনার অর্জিত সাফল্য এখানে দেখানো হবে।</p>
+      </div>
+
+      <div id="teacher-reviews" class="dashboard-section" style="display:none;">
+        <h3>শিক্ষকের রিভিউ</h3>
+        <p>নিচে আপনার শিক্ষকগণকে রেট দিন:</p>
+        <div id="teacher-rating-list">
+          <!-- Teachers with rating UI will appear here -->
+        </div>
+      </div>
+
+      <div id="student-reviews" class="dashboard-section" style="display:none;">
+        <h3>শিক্ষার্থী রিভিউ</h3>
+        <p>এখানে আপনার দেওয়া শিক্ষার্থী রিভিউ দেখানো হবে।</p>
+      </div>
+
+      <div id="certificates" class="dashboard-section" style="display:none;">
+        <h3>সার্টিফিকেট</h3>
+        <p>এখানে আপনার অর্জিত সার্টিফিকেট দেখানো হবে।</p>
+      </div>
+    </div>
+  </div>
+<button id="logout-btn">🚪 লগআউট</button>
+
+  <script src="student-dashboard.js"></script>
+</body>
+</html>
+
+

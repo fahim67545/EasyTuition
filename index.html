@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to EasyTuition</title>
+  <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+  <section class="hero-section">
+    <div class="animated-bg">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    
+    <div class="container">
+      <div class="logo">
+        <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background circle -->
+          <circle cx="100" cy="100" r="95" fill="#ffffff" stroke="#27ae60" stroke-width="5"/>
+          
+          <!-- Book base -->
+          <path d="M50 70 L50 140 L150 140 L150 70 Z" fill="#ffffff" stroke="#1e8449" stroke-width="3"/>
+          
+          <!-- Book pages -->
+          <path d="M50 70 L100 55 L150 70 L100 85 Z" fill="#f1f1f1" stroke="#1e8449" stroke-width="3"/>
+          <path d="M100 85 L100 155 L150 140 L150 70 Z" fill="#e0e0e0" stroke="#1e8449" stroke-width="3"/>
+          
+          <!-- Pencil -->
+          <path d="M70 110 L130 90 L135 95 L75 115 Z" fill="#2ecc71" stroke="#1a5e3c" stroke-width="2"/>
+          <path d="M135 95 L140 90 L130 90 Z" fill="#1a5e3c"/>
+          
+          <!-- Text -->
+          <text x="100" y="175" font-family="Poppins, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1e8449">EasyTuition</text>
+          
+          <!-- Green sparkles -->
+          <circle cx="60" cy="50" r="5" fill="#2ecc71"/>
+          <circle cx="140" cy="50" r="3" fill="#27ae60"/>
+          <circle cx="40" cy="100" r="4" fill="#2ecc71"/>
+          <circle cx="160" cy="100" r="5" fill="#27ae60"/>
+          <circle cx="70" cy="170" r="3" fill="#2ecc71"/>
+          <circle cx="130" cy="170" r="4" fill="#27ae60"/>
+        </svg>
+      </div>
+      
+      <h1 id="typing-text"></h1>
+      
+      <p class="tagline">সহজে টিউটর খুঁজুন, সেরা শিক্ষা নিশ্চিত করুন</p>
+      
+      <a href="role-selection.html" class="enter-button" id="enterBtn">প্রবেশ করুন</a>
+      
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">👨‍🏫</div>
+          <div class="feature-title">যোগ্য শিক্ষক</div>
+          <div>বাছাইকৃত এবং অভিজ্ঞ শিক্ষক খুঁজুন</div>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">⏱️</div>
+          <div class="feature-title">সময় বাঁচান</div>
+          <div>দ্রুত এবং সহজে টিউটর খুঁজুন</div>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🔍</div>
+          <div class="feature-title">সঠিক মিল</div>
+          <div>আপনার প্রয়োজন অনুযায়ী শিক্ষক বাছাই করুন</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-content">
+      <div>
+        <div class="footer-logo">EasyTuition</div>
+        <p>আপনার শিক্ষা যাত্রায় সর্বোত্তম সহায়তা</p>
+      </div>
+      
+      <div class="footer-links">
+        <a href="privacy-policy.html">গোপনীয়তা নীতি</a>
+        <a href="terms-of-service.html">সেবার শর্তাবলী</a>
+        <a href="about-us.html">আমাদের সম্পর্কে</a>
+        <a href="contact.html">যোগাযোগ</a>
+      </div>
+      
+      <div class="social-media">
+        <a href="#" class="social-icon">f</a>
+        <a href="#" class="social-icon">t</a>
+        <a href="#" class="social-icon">in</a>
+        <a href="#" class="social-icon">ig</a>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2025 EasyTuition. সর্বস্বত্ব সংরক্ষিত।</p>
+    </div>
+  </footer>
+
+  <script>
+    const text = "ইজিটিউশনে স্বাগতম";
+    const typingText = document.getElementById("typing-text");
+    let index = 0;
+    
+    function typeLetter() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeLetter, 100);
+      }
+    }
+    
+    window.addEventListener('load', () => {
+      typeLetter();
+    });
+    
+    document.getElementById("enterBtn").addEventListener("click", (e) => {
+      console.log("Enter button clicked");
+    });
+  </script>
+</body>
+</html>
